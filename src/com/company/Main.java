@@ -8,20 +8,18 @@ public class Main {
         //create and start the game
         Game blackjack = new Game();
 
-        // test: making cards and deck
+        // test deck and hand
         Deck testDeck = new Deck();
-        Card firstCard = new Card(Suit.DIAMOND, Rank.JACK);
-        Card secondCard = new Card(Suit.HEART, Rank.FIVE);
+        testDeck.addCard(new Card(Suit.HEART, Rank.ACE));
+        testDeck.addCard(new Card(Suit.HEART, Rank.ACE));
+        testDeck.addCard(new Card(Suit.HEART, Rank.ACE));
+        testDeck.addCard(new Card(Suit.HEART, Rank.ACE));
+        Hand testHand = new Hand();
+        testHand.takeCardFromDeck(testDeck);
+        testHand.takeCardFromDeck(testDeck);
+        testHand.takeCardFromDeck(testDeck);
+        testHand.takeCardFromDeck(testDeck);
+        System.out.println("Vaule of hand is: " + testHand.calculatedValue());
 
-        testDeck.addCard(firstCard);
-        testDeck.addCard(secondCard);
-
-        System.out.println(testDeck);
-
-        //Make a standard deck of 52 cards
-        Deck testDeck1 = new Deck(true);
-        testDeck1.shuffle();
-
-        System.out.println(testDeck1);
     }
 }

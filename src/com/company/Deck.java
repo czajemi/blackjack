@@ -58,4 +58,11 @@ public class Deck {
         }
        deck = shuffled;
     }
+
+    // create new card as a copy of card from deck.get(0)
+    public Card takeCard(){
+        Card cardToTake = new Card(deck.get(0));
+        deck.remove(0);
+        return cardToTake;
+    }
 }

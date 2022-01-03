@@ -11,6 +11,12 @@ public class Card {
         this.rank = rank;
     }
 
+    // copy constructor
+    public Card(Card card){
+        this.suit = card.getSuit();
+        this.rank = card.getRank();
+    }
+
     // getter methods for card value, suit and rank
     public int getValue(){
         return rank.rankValue;

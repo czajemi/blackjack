@@ -46,4 +46,9 @@ public class Hand {
         }
     return value;
     }
+
+    // to get card from its index
+    public Card getCard(int idx){
+        return hand.get(idx);
+    }
 }

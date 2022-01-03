@@ -21,5 +21,8 @@ public class Main {
         testHand.takeCardFromDeck(testDeck);
         System.out.println("Vaule of hand is: " + testHand.calculatedValue());
 
+
+        Dealer Diler = new Dealer();
+        System.out.println("Diler xd " + Diler.getName());
     }
 }

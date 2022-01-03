@@ -8,11 +8,20 @@ public class Main {
         //create and start the game
         Game blackjack = new Game();
 
-        // tests
-        System.out.println(Suit.DIAMOND);
-        System.out.println(Rank.ACE + " has a value of " + Rank.ACE.rankValue);
-        // card test
-        Card testCard = new Card(Suit.CLUB, Rank.ACE);
-        System.out.println(testCard);
+        // test: making cards and deck
+        Deck testDeck = new Deck();
+        Card firstCard = new Card(Suit.DIAMOND, Rank.JACK);
+        Card secondCard = new Card(Suit.HEART, Rank.FIVE);
+
+        testDeck.addCard(firstCard);
+        testDeck.addCard(secondCard);
+
+        System.out.println(testDeck);
+
+        //Make a standard deck of 52 cards
+        Deck testDeck1 = new Deck(true);
+        testDeck1.shuffle();
+
+        System.out.println(testDeck1);
     }
 }

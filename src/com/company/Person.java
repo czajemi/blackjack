@@ -4,7 +4,7 @@ public abstract class Person {
     private Hand hand;
     private String name;
 
-    //create a new person
+    // create a new person
     public Person(){
         this.hand = new Hand();
         this.name = "";
@@ -37,9 +37,20 @@ public abstract class Person {
         }
     }
 
-    //print person's hand
+    // print person's hand
     public void printHand(){
         System.out.println(this.name + "'s hand: ");
         System.out.println((this.hand + "is valued at: " + this.hand.calculatedValue()));
+    }
+
+    // hit method
+    public void hit(Deck deck, Deck discard){
+        // check if there is no cards left in deck
+        if(!deck.hasCards()){
+            deck.reloadDeckFromDiscard(discard);
+        }
+        this.hand.takeCardFromDeck(deck);
+        System.out.println(this.name + " gets a card");
+        this.printHand();
     }
 }

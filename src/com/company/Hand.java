@@ -51,4 +51,11 @@ public class Hand {
     public Card getCard(int idx){
         return hand.get(idx);
     }
+
+    // method to discard hand to deck
+    public void discardHandToDeck(Deck discardDeck){
+        //copy cards from hand to discardDeck
+        discardDeck.addCards(hand);
+        hand.clear();
+    }
 }

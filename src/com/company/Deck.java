@@ -65,4 +65,43 @@ public class Deck {
         deck.remove(0);
         return cardToTake;
     }
+
+    // check if deck has cards in it
+    public boolean hasCards(){
+        if (deck.size()>0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    //to empties the deck
+    public void emptyDeck(){
+        deck.clear();
+    }
+
+    //method that adds cards from a discard deck to this deck
+    public void addCards(ArrayList<Card> cards){
+        deck.addAll(cards);
+    }
+
+    // array list which contains all the cards in current deck
+    public ArrayList<Card> getCards(){
+        return deck;
+    }
+
+    // take all cards from discarded deck and place them in current deck
+    // next shuffle, and clear old deck
+    public void reloadDeckFromDiscard(Deck discard){
+        this.addCards(discard.getCards());
+        this.shuffle();
+        discard.emptyDeck();
+        System.out.println("Run out of cards. Creating a new deck from discard pile and shuffling deck");
+    }
+
+    // returns amount of card left in deck
+    public int cardsLeft(){
+        return deck.size();
+    }
 }

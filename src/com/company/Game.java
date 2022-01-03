@@ -24,13 +24,26 @@ public class Game {
 
     // method to hold logic for each round
     private void startRound(){
-        //give the dealer and player two cards
+        // if it isn't first round -> display users score and put their cards back to deck
+        if(wins>0 || losses>0 || pushes >0){
+            System.out.println();
+            System.out.println("Starting next round");
+            System.out.println("Wins: " + wins + " losses: " + losses + " pushes: " + pushes);
+            dealer.getHand().discardHandToDeck(discarded);
+            player.getHand().discardHandToDeck(discarded);
+        }
+
+        // check if the deck has at leadt 4 cards to left
+        if(deck.cardsLeft() < 4){
+            deck.reloadDeckFromDiscard(discarded);
+        }
+        // give the dealer and player two cards
         dealer.getHand().takeCardFromDeck(deck);
         dealer.getHand().takeCardFromDeck(deck);
         player.getHand().takeCardFromDeck(deck);
         player.getHand().takeCardFromDeck(deck);
 
-        //print dealer and player hands
+        // print dealer and player hands
         dealer.printFirstHand();
         player.printHand();
 
@@ -59,6 +72,47 @@ public class Game {
             startRound();
         }
 
-        player.makeDecision();
+        player.makeDecision(deck, discarded);
+
+        // check if player busted
+        if(player.getHand().calculatedValue()>21){
+            System.out.println("You are over 21");
+            losses ++;
+            startRound();
+        }
+
+        // dealer turn
+        dealer.printHand();
+        while (dealer.getHand().calculatedValue()<17){
+            dealer.hit(deck, discarded);
+        }
+
+        // checking who wins
+        if(dealer.getHand().calculatedValue()>21){
+            System.out.println("Dealer busted");
+            wins ++;
+        }
+        else if(dealer.getHand().calculatedValue() > player.getHand().calculatedValue()) {
+            System.out.println("You lose");
+            losses ++;
+        }
+        else if(dealer.getHand().calculatedValue() < player.getHand().calculatedValue()){
+            System.out.println("You win");
+            wins ++;
+        }
+        else{
+            System.out.println("Push");
+        }
+
+        startRound();
+    }
+
+    //pause the game
+    public static void pause(){
+        try{
+            Thread.sleep(8000);
+        } catch(InterruptedException e){
+            e.printStackTrace();
+        }
     }
 }

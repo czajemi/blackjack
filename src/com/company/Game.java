@@ -1,5 +1,8 @@
 package com.company;
 
+/**
+ * Contains game logic
+ */
 public class Game {
     // create variables used by Game class
     private Deck deck, discarded;
@@ -107,7 +110,7 @@ public class Game {
         startRound();
     }
 
-    //pause the game
+    // pause the game
     public static void pause(){
         try{
             Thread.sleep(8000);

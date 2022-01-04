@@ -19,7 +19,7 @@ public enum Rank {
     ACE("Ace", 11);
 
     String rankName;
-    int rankValue; //holds value of each rank
+    int rankValue; // holds value of each rank
 
     // gives each rank a name and add an int to store value
     Rank(String rankName, int rankValue){

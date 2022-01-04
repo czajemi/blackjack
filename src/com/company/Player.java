@@ -29,7 +29,7 @@ public class Player extends Person{
                 input.next();
             }
         }
-        //user decide to hit
+        // user decide to hit
         if(decision == 1) {
             // hit deck using deck and discard deck
             this.hit(deck, discard);
@@ -43,7 +43,7 @@ public class Player extends Person{
             }
         }
         else{
-            //if user type any number other than 1 -> user stands
+            // if user type any number other than 1 -> user stands
             System.out.println("You stand");
         }
     }

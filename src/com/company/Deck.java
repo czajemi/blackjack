@@ -7,20 +7,20 @@ import java.util.ArrayList;
  */
 public class Deck {
 
-    //arraylist to hold deck of cards
+    // arraylist to hold deck of cards
     private ArrayList<Card> deck;
 
-    //create empty deck of cards
+    // create empty deck of cards
     public Deck(){
         deck = new ArrayList<Card>();
     }
 
-    //method to add a single card to the deck
+    // method to add a single card to the deck
     public void addCard(Card card){
         deck.add(card);
     }
 
-    //toString method returns a String containing every single card in the deck
+    // toString method returns a String containing every single card in the deck
     public String toString(){
         //empty string to hold everything which is going to return
         String output = "";
@@ -38,7 +38,7 @@ public class Deck {
         if(makeDeck){
             for(Suit suit : Suit.values()){
                 for(Rank rank : Rank.values()){
-                    //add a new card containing each iterations suit and rank
+                    // add a new card containing each iterations suit and rank
                     deck.add(new Card(suit, rank));
                 }
             }
@@ -76,12 +76,12 @@ public class Deck {
         }
     }
 
-    //to empties the deck
+    // to empties the deck
     public void emptyDeck(){
         deck.clear();
     }
 
-    //method that adds cards from a discard deck to this deck
+    // method that adds cards from a discard deck to this deck
     public void addCards(ArrayList<Card> cards){
         deck.addAll(cards);
     }

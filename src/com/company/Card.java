@@ -1,5 +1,9 @@
 package com.company;
 
+/**
+ * Contains the methods needed to get value of the card, print the card to the console
+ * and allows to create cards with suit and rank
+ */
 public class Card {
     // private instance variables
     private Suit suit;

@@ -1,5 +1,8 @@
 package com.company;
 
+/**
+ * Class to share logic between dealer and player
+ */
 public abstract class Person {
     private Hand hand;
     private String name;

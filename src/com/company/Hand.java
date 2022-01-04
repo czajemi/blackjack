@@ -2,6 +2,9 @@ package com.company;
 
 import java.util.ArrayList;
 
+/**
+ * Hand of cards to play with
+ */
 public class Hand {
     private ArrayList<Card> hand;
 
@@ -23,21 +26,21 @@ public class Hand {
         return output;
     }
 
-    //method returns an int value of the hand
+    // method returns an int value of the hand
     public int calculatedValue(){
         int value = 0;
-        int aceCount = 0; //to count number of aces
+        int aceCount = 0; // to count number of aces
 
         for(Card card: hand){
-            //add card value to hand
+            // add card value to hand
             value += card.getValue();
-            //count added aces
+            // count added aces
             if(card.getValue() == 11){
                 aceCount ++;
             }
         }
-        //if multiple aces have been added
-        //go back and set each ace to 1 until get back under 21
+        // if multiple aces have been added
+        // go back and set each ace to 1 until get back under 21
         if (value > 21 && aceCount > 0){
             while(aceCount > 0 && value > 21){
                 aceCount --;
@@ -54,7 +57,7 @@ public class Hand {
 
     // method to discard hand to deck
     public void discardHandToDeck(Deck discardDeck){
-        //copy cards from hand to discardDeck
+        // copy cards from hand to discardDeck
         discardDeck.addCards(hand);
         hand.clear();
     }
